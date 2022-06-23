@@ -21,7 +21,7 @@ pipeline {
             }
             steps {
                 echo 'Running build automation'
-                sh 'mvn fabric8:build -Popenshift-deployment -DskipTests -Dfabric8.generator.spring-boot.name=[balance_inquiry/build_number]'
+                sh 'mvn fabric8:build -kubernetes-deployment -DskipTests -Dfabric8.generator.spring-boot.name=[balance_inquiry/build_number]'
                 
                 
             }
@@ -47,7 +47,7 @@ pipeline {
             }
             steps {
                 echo 'Running deploy automation'
-                sh 'mvn fabric8:deploy -Popenshift'
+                sh 'mvn fabric8:deploy -kubernetes'
                 
                 
             }
