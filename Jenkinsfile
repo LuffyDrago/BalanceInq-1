@@ -16,7 +16,16 @@ pipeline {
                 archiveArtifacts artifacts: '**/target/*.jar'
             }
         }
+        
        
+      
+        stage('Apply Kubernetes files') {
+             withKubeConfig([credentialsId: 'kubeconfig', serverUrl: 'http://192.168.0.65:6443']) {
+              sh 'kubectl apply -f my-kubernetes-directory'
+            }
+          }
+
+
         
         
         stage('build') {
@@ -25,7 +34,7 @@ pipeline {
             }
             steps {
                 echo 'Running build automation'
-                 withKubeConfig([credentialsId: 'kubeconfig', serverUrl: 'http://192.168.0.65:6443'])
+                
                 sh 'mvn --settings configuration/settings.xml fabric8:build -Pkubernetes-deployment -DskipTests -Dfabric8.generator.spring-boot.name=USER_NAME'
                
                 
