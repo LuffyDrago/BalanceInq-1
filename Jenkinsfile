@@ -14,14 +14,14 @@ pipeline {
             }
         }
          
-        stage('Run') {
+        stage('build') {
              when {
                 branch 'master'
             }
             steps {
                 echo 'Running build automation'
                 sh 'mvn build'
-                archiveArtifacts artifacts: '**/target/*.jar'
+                
             }
         }
         
