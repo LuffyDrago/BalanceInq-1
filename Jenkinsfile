@@ -17,15 +17,30 @@ pipeline {
             }
         }
         
-       
-      
-        stage('Apply Kubernetes files') {
-             withKubeConfig([credentialsId: 'kubeconfig', serverUrl: 'http://192.168.0.65:6443']) 
+        stage('Login to Kubernetes cluster') {
+            withKubeConfig([credentialsId: 'kubeconfig', serverUrl: 'http://192.168.0.65:6443']) 
+                steps{
+                     echo 'login to kubernetes'
+                }
           }
+      
+        
 
 
         
-        
+        stage('build') {
+             when {
+                branch 'master'
+            }
+            steps {
+                echo 'Running build automation'
+                
+                sh 'mvn --settings configuration/settings.xml fabric8:build -Pkubernetes-deployment -DskipTests -Dfabric8.generator.spring-boot.name=USER_NAME'
+               
+                
+                
+            }
+        }
         stage('build') {
              when {
                 branch 'master'
