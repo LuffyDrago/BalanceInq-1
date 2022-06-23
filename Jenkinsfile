@@ -20,8 +20,8 @@ pipeline {
                 branch 'master'
             }
             steps {
-                echo 'Running build automation'
-                sh 'mvn --settings configuration/settings.xml fabric8:build -Pkubernetes-deployment -DskipTests -Dfabric8.generator.spring-boot.name=${env.BUILD_NUMBER}'
+                echo 'Running build automation' sh 'mvn --settings configuration/settings.xml fabric8:build -Pkubernetes-deployment -DskipTests -Dfabric8.generator.spring-boot.name-${env.BUILD_NUMBER}'
+               
                 
                 
             }
