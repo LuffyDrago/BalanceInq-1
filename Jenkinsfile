@@ -21,7 +21,7 @@ pipeline {
             }
             steps {
                 echo 'Running build automation'
-                sh 'mvn fabric8:build -kubernetes-deployment -DskipTests -Dfabric8.generator.spring-boot.name=[balance_inquiry/build_number]'
+                sh 'mvn fabric8:build -Pkubernetes-deployment -DskipTests'
                 
                 
             }
