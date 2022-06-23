@@ -9,7 +9,7 @@ pipeline {
             }
             steps {
                 echo 'Running build automation'
-                sh 'mvn clean package --settings configuration/settings.xml'
+                sh 'mvn clean install --settings configuration/settings.xml'
                 archiveArtifacts artifacts: '**/target/*.jar'
             }
         }
