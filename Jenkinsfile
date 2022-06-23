@@ -21,7 +21,7 @@ pipeline {
             }
             steps {
                 echo 'Running build automation'
-                sh 'mvn fabric8:build -Pkubernetes-deployment -DskipTests'
+                sh 'mvn --settings configuration/settings.xml fabric8:build -Pkubernetes-deployment -DskipTests'
                 
                 
             }
