@@ -1,6 +1,9 @@
 pipeline {
     agent any
-    
+     environment {
+        USER_NAME = "balance_inq"
+        
+    }
     
     stages {
         stage('Run') {
@@ -21,7 +24,7 @@ pipeline {
             }
             steps {
                 echo 'Running build automation'
-                sh 'mvn --settings configuration/settings.xml fabric8:build -Pkubernetes-deployment -DskipTests -Dfabric8.generator.spring-boot.name=balance_inquiry[${env.BUILD_NUMBER}]'
+                sh 'mvn --settings configuration/settings.xml fabric8:build -Pkubernetes-deployment -DskipTests -Dfabric8.generator.spring-boot.name= USER_NAME=[${env.BUILD_NUMBER}]'
                
                 
                 
