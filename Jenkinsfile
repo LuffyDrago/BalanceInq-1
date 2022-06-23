@@ -22,20 +22,20 @@ pipeline {
         
         stage('Login kubernetes') {
            steps {
-               withKubeConfig([credentialsId: 'kubeconfig', serverUrl: 'http://192.168.0.65:6443']) {
+               withKubeConfig([credentialsId: 'kubeconfig']) {
                    sh ''
                   
                }
            }
        }
         
-        stage('Apply Kubernetes Files') {
-            steps {
-                withKubeConfig([credentialsId: 'kubeconfig', serverUrl: 'http://192.168.0.65:6443']) {
+//         stage('Apply Kubernetes Files') {
+//             steps {
+//                 withKubeConfig([credentialsId: 'kubeconfig', serverUrl: 'http://192.168.0.65:6443']) {
                 
-                }
-            }
-        }
+//                 }
+//             }
+//         }
         
         stage('build') {
              when {
