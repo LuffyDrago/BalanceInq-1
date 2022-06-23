@@ -20,7 +20,7 @@ pipeline {
        
 
         stage {
-            steps('login Kubernetes ') {
+            steps('login Kubernetes') {
                 withKubeConfig([credentialsId: 'kubeconfig', serverUrl: 'http://192.168.0.65:6443']) 
                     
                     
@@ -102,19 +102,7 @@ pipeline {
         }
 
 
-        stage('DeployToProduction') {
-            when {
-                branch 'master'
-            }
-            steps {
-                milestone(1)
-                kubernetesDeploy(
-                    kubeconfigId: 'kubeconfig',
-                    configs: 'train-schedule-kube.yml',
-                    enableConfigSubstitution: true
-                )
-            }
-        }
+        
     
         
     }
