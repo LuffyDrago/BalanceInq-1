@@ -13,7 +13,7 @@
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
         <!-- configure the Fuse version you want to use here -->
-        <fuse.bom.version>7.4.0.fuse-sb2-740019-redhat-00005</fuse.bom.version>
+        <fuse.bom.version>7.10.0.fuse-sb2-7_10_0-00019-redhat-00002</fuse.bom.version>
         <!-- <fuse.bom.version>7.4.0.fuse-740036-redhat-00002</fuse.bom.version> -->
         
         <jedis.version>3.3.0</jedis.version>
@@ -222,40 +222,17 @@
     </build>
 
     <profiles>
-		<profile>
-			<id>kubernetes</id>
-			<activation>
-				<activeByDefault>false</activeByDefault>
-			</activation>
-			<build>
-				<plugins>
-					<plugin>
-						<groupId>org.jboss.redhat-fuse</groupId>
-						<artifactId>fabric8-maven-plugin</artifactId>
-						<version>${fuse.bom.version}</version>
-						<executions>
-							<execution>
-								<goals>
-									<goal>resource</goal>
-									<goal>build</goal>
-								</goals>
-							</execution>
-						</executions>
-					</plugin>
-				</plugins>
-			</build>
-		</profile>
-		<profile>
+	    <profile>
 			<id>kubernetes-deployment</id>
-			<activation>
+			<!--activation>
 				<activeByDefault>false</activeByDefault>
-			</activation>
+			</activation-->
 			<build>
 				<plugins>
 					<plugin>
 						<groupId>io.fabric8</groupId>
 						<artifactId>fabric8-maven-plugin</artifactId>
-						<version>${fuse.bom.version}</version>
+						<version>4.3.0.fuse-790039-redhat-00001</version>
 						<executions>
 							<execution>
 								<goals>
@@ -268,5 +245,25 @@
 				</plugins>
 			</build>
 		</profile>
-	</profiles>
+        <profile>
+            <id>kubernetes</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>io.fabric8</groupId>
+                        <artifactId>fabric8-maven-plugin</artifactId>
+                        <version>4.3.0.fuse-790039-redhat-00001</version>
+                        <executions>
+                            <execution>
+                                <goals>
+                                    <goal>resource</goal>
+                                    <goal>build</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
 </project>
