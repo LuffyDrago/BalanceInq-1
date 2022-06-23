@@ -222,25 +222,97 @@
     </build>
 
     <profiles>
-        <profile>
-            <id>openshift</id>
-            <build>
-                <plugins>
-                    <plugin>
-                        <groupId>org.jboss.redhat-fuse</groupId>
-                        <artifactId>fabric8-maven-plugin</artifactId>
-                        <version>${fuse.bom.version}</version>
-                        <executions>
-                            <execution>
-                                <goals>
-                                    <goal>resource</goal>
-                                    <goal>build</goal>
-                                </goals>
-                            </execution>
-                        </executions>
-                    </plugin>
-                </plugins>
-            </build>
-        </profile>
-    </profiles>
+
+        <profile>
+
+            <id>kubernetes</id>
+
+            <activation>
+
+                <activeByDefault>false</activeByDefault>
+
+            </activation>
+
+            <build>
+
+                <plugins>
+
+                    <plugin>
+
+                        <groupId>org.jboss.redhat-fuse</groupId>
+
+                        <artifactId>fabric8-maven-plugin</artifactId>
+
+                        <version>${fuse.bom.version}</version>
+
+                        <executions>
+
+                            <execution>
+
+                                <goals>
+
+                                    <goal>resource</goal>
+
+                                    <goal>build</goal>
+
+                                </goals>
+
+                            </execution>
+
+                        </executions>
+
+                    </plugin>
+
+                </plugins>
+
+            </build>
+
+        </profile>
+
+        <profile>
+
+            <id>kubernetes-deployment</id>
+
+            <activation>
+
+                <activeByDefault>false</activeByDefault>
+
+            </activation>
+
+            <build>
+
+                <plugins>
+
+                    <plugin>
+
+                        <groupId>io.fabric8</groupId>
+
+                        <artifactId>fabric8-maven-plugin</artifactId>
+
+                        <version>4.3.1</version>
+
+                        <executions>
+
+                            <execution>
+
+                                <goals>
+
+                                    <goal>resource</goal>
+
+                                    <goal>build</goal>
+
+                                </goals>
+
+                            </execution>
+
+                        </executions>
+
+                    </plugin>
+
+                </plugins>
+
+            </build>
+
+        </profile>
+    </profiles>
 </project>
