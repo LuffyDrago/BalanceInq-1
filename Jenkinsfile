@@ -20,9 +20,7 @@ pipeline {
        
       
         stage('Apply Kubernetes files') {
-             withKubeConfig([credentialsId: 'kubeconfig', serverUrl: 'http://192.168.0.65:6443']) {
-              sh 'kubectl apply -f my-kubernetes-directory'
-            }
+             withKubeConfig([credentialsId: 'kubeconfig', serverUrl: 'http://192.168.0.65:6443']) 
           }
 
 
