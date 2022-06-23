@@ -9,10 +9,11 @@ pipeline {
             }
             steps {
                 echo 'Running build automation'
-                sh 'mvn clean package mvn spring-boot:run --settings configuration/settings.xml'
+                sh 'mvn clean package --settings configuration/settings.xml'
                 archiveArtifacts artifacts: '**/target/*.jar'
             }
         }
+       
         
         stage('build') {
              when {
