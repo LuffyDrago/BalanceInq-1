@@ -20,12 +20,13 @@ pipeline {
        
 
         stage ('login Kubernetes'){
-            steps {
-                withKubeConfig([credentialsId: 'kubeconfig', serverUrl: 'http://192.168.0.65:6443']) 
-                    
-                }
+            steps{
+            withKubeConfig([credentialsId: 'kubeconfig', serverUrl: 'http://192.168.0.65:6443'])
+            echo "Kubernetes Login"
+            }
         }
-      
+        
+        
         
         stage('build') {
              when {
@@ -33,7 +34,10 @@ pipeline {
             }
             steps {
                 echo 'Running build automation'
-                sh 'mvn --settings configuration/settings.xml fabric8:build -Pkubernetes-deployment -DskipTests -Dfabric8.generator.spring-boot.name=USER_NAME'            
+                
+                sh 'mvn --settings configuration/settings.xml fabric8:build -Pkubernetes-deployment -DskipTests -Dfabric8.generator.spring-boot.name=USER_NAME'
+               
+                
                 
             }
         }
@@ -83,23 +87,12 @@ pipeline {
         
 
 
-        stage('Deploy') {
-             when {
-                branch 'master'
-            }
-            steps {
-                milestone(1)
-                kubernetesDeploy(
-                    kubeconfigId: 'kubeconfig',
-                    configs: 'train-schedule-kube.yml',
-                    enableConfigSubstitution: true
-                )
-            }
-        }
-
+        
 
         
     
         
     }
 }
+
+
