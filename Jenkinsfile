@@ -10,7 +10,7 @@ pipeline {
             steps {
                 echo 'Running build automation'
                 sh 'mvn clean package -DskipTests -X --settings configuration/settings.xml'
-                archiveArtifacts artifacts: '**/target/*.jar'
+                
             }
         }
          
@@ -21,6 +21,7 @@ pipeline {
             steps {
                 echo 'Running build automation'
                 sh 'mvn build'
+                archiveArtifacts artifacts: '**/target/*.jar'
                 
             }
         }
