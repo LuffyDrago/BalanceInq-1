@@ -22,7 +22,7 @@ pipeline {
         
         stage('Login kubernetes') {
            steps {
-               withKubeConfig([credentialsId: 'kubeconfig', serverUrl: 'https://192.168.0.65']) {
+               withKubeConfig([credentialsId: 'kubeconfigs', serverUrl: 'https://192.168.0.65']) {
                    sh 'kubectl cluster info'
                   
                }
