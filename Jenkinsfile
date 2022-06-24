@@ -85,7 +85,7 @@ pipeline {
         
          
        
-        
+//         SECRET_NAME=$(kubectl get serviceaccount default  -o=jsonpath='{.secrets[0].name}' -n default)
 
         
 
