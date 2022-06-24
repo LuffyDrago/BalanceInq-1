@@ -23,11 +23,13 @@ pipeline {
         stage('Login kubernetes') {
            steps {
                withKubeConfig([credentialsId: 'kubeconfig', serverUrl: 'https://192.168.0.65']) {
-                   sh ''
+                   sh 'kubectl cluster info'
                   
                }
            }
        }
+        
+        
         
 //         stage('Apply Kubernetes Files') {
 //             steps {
