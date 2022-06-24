@@ -223,3 +223,4 @@ kubectl get pod --namespace kube-system -l app=flannel
 kubectl logs --namespace kube-system <POD_ID> -c kube-flannel
 
 
+sudo netstat -nlpt|grep :10250
