@@ -6,7 +6,7 @@ pipeline {
     }
     
     stages {
-        stage('Run') {
+        stage('Run and Compile Code') {
              when {
                 branch 'master'
             }
@@ -30,24 +30,11 @@ pipeline {
                
            }
        }
-//         kubectl get secrets $SECRET_NAME  -o=jsonpath='{.data.token}' -n default | base64 -D
-//         https://support.cloudbees.com/hc/en-us/articles/360038636511-Kubernetes-Plugin-Authenticate-with-a-ServiceAccount-to-a-remote-cluster
-//         kubectl get secrets $SECRET_NAME  -o=jsonpath='{.data.token}' -n default | base64 -D
-//         https://devopscube.com/jenkins-build-agents-kubernetes/
-//         kubectl get secrets $SECRET_NAME -o=jsonpath='{.data.token}' -n default -o jsonpath={.data.'ca\.crt'} | base64 --decode
-//         SECRET_NAME=$(kubectl get serviceaccount default  -o=jsonpath='{.secrets[0].name}' -n default)
-//         SECRET_NAME=$(kubectl get serviceaccount default  -o=jsonpath='{.secrets[0].name}' -n default -o jsonpath={.data.token} | base64 --decode)
+
         
+
         
-//         stage('Apply Kubernetes Files') {
-//             steps {
-//                 withKubeConfig([credentialsId: 'kubeconfig', serverUrl: 'http://192.168.0.65:6443']) {
-                
-//                 }
-//             }
-//         }
-        
-        stage('build the image') {
+        stage('Build balance-inquiry image') {
              when {
                 branch 'master'
             }
@@ -61,7 +48,7 @@ pipeline {
             }
         }
         
-        stage('Tag and Push Docker Image') {
+        stage('Tag and Push Image to DockerHub') {
             when {
                 branch 'master'
             }
@@ -75,7 +62,7 @@ pipeline {
             }
         }
         
-        stage('deploy') {
+        stage('Deploy Balance-Inquiry Service') {
              when {
                 branch 'master'
             }
@@ -86,19 +73,7 @@ pipeline {
                 
             }
         }
-        
-         
-       
-//         SECRET_NAME=$(kubectl get serviceaccount default  -o=jsonpath='{.secrets[0].name}' -n default)
-
-        
-
-
-        
-
-        
-    
-        
+     
     }
 }
 
