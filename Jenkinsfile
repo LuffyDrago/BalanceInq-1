@@ -31,7 +31,7 @@ pipeline {
            }
        }
         
-        
+//         kubectl get secrets $SECRET_NAME  -o=jsonpath='{.data.token}' -n default | base64 -D
 //         SECRET_NAME=$(kubectl get serviceaccount default  -o=jsonpath='{.secrets[0].name}' -n default)
         
         
