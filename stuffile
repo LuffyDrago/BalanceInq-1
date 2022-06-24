@@ -13,3 +13,6 @@ spec:
   - image: nginx
     name: cicd
 EOF
+
+
+k exec cicd -- cat /run/secrets/kubernetes.io/serviceaccount/token && echo
