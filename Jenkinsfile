@@ -66,7 +66,9 @@ pipeline {
             steps {
                 script {
                     docker.withRegistry('https://registry.hub.docker.com', 'docker_hub_login') {
-                        sh 'docker tag "balance-inquiry:latest" "balance-inquiry:${env.BUILD_NUMBER}"'
+//                         sh 'docker tag "balance-inquiry:latest" "balance-inquiry:${env.BUILD_NUMBER}"'
+//                         sh 'docker tag balance-inquiry:latest "balance-inquiry:${env.BUILD_NUMBER}"'
+                        sh 'docker tag balance-inquiry:latest ${env.USER_NAME}'
                         app.push("${env.BUILD_NUMBER}")
                         app.push("latest")
                     }
@@ -80,8 +82,9 @@ pipeline {
             }
             steps {
                 echo 'Running deploy automation'
-                sh 'mvn fabric8:deploy -kubernetes'
-                
+                withKubeConfig([credentialsId: 'kubeconfigs', serverUrl: 'https://192.168.0.65:6443']) {
+                     sh 'mvn fabric8:deploy -kubernetes'
+                }
                 
             }
         }
