@@ -1,17 +1,19 @@
 pipeline {
     agent any
-//      environment {
+     environment {
       
         
-//         USER_NAME = "balance-inquiry:latest:${env.BUILD_NUMBER}" 
+        USER_NAME = "balance-inquiry:latest:${env.BUILD_NUMBER}" 
+        DOCKER_IMAGE_NAME = "vickvick/train-schedule"
+        
  
         
-//     }
-    parameters {
+    }
+//     parameters {
         
-        imageTag(name: '$DOCKER_IMAGE', image: 'balance-inquiry:latest:${env.BUILD_NUMBER}')
+//         imageTag(name: '$DOCKER_IMAGE', image: 'balance-inquiry:latest:${env.BUILD_NUMBER}')
         
-      }
+//       }
     
     stages {
         stage('Run and Compile Code') {
@@ -67,9 +69,7 @@ pipeline {
                 script {
                     docker.withRegistry('https://registry.hub.docker.com', 'docker_hub_login') {                       
 //                         sh 'docker tag "balance-inquiry:latest" "balance-inquiry"'   
-                        echo "$DOCKER_IMAGE" // will print selected image name with tag (eg. jenkins/jenkins:lts-jdk11)
-                        echo "$DOCKER_IMAGE_TAG" // will print selected tag value (eg. lts-jdk11)
-                        echo "$DOCKER_IMAGE_IMAGE"
+                        app = docker.build(DOCKER_IMAGE_NAME)
                         app.push("${env.BUILD_NUMBER}")
                         app.push("latest")
                     }
