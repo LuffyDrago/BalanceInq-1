@@ -68,7 +68,9 @@ pipeline {
             }
             steps {
                 script {
-                    docker.withRegistry('https://registry.hub.docker.com', 'docker_hub_login') {                                        
+                    docker.withRegistry('https://registry.hub.docker.com', 'docker_hub_login') {    
+                        docker tag <old name> <new name>
+                        sh 'docker tag <balance-inquiry:latest> <balance-inquiry>'
                         app.push("${env.BUILD_NUMBER}")
                         app.push("latest")
                     }
