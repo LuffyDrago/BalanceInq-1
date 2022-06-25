@@ -1,11 +1,16 @@
 pipeline {
     agent any
-     environment {
+//      environment {
       
         
-        USER_NAME = "balance_inq:[${env.BUILD_NUMBER}]" 
+//         USER_NAME = "balance_inq:[${env.BUILD_NUMBER}]" 
  
         
+//     }
+    parameters {
+       project = 'balance-inquiry'
+
+        image= {env.BUILD_NUMBER}
     }
     
     stages {
@@ -46,7 +51,7 @@ pipeline {
                 withKubeConfig([credentialsId: 'kubeconfigs', serverUrl: 'https://192.168.0.65:6443']) {
                     
 //                     sh 'mvn --settings configuration/settings.xml fabric8:build -Pkubernetes-deployment -DskipTests -Dfabric8.generator.spring-boot.name=USER_NAME'
-                    sh 'mvn --settings configuration/settings.xml fabric8:build -Pkubernetes-deployment -DskipTests'
+                    sh 'mvn --settings configuration/settings.xml fabric8:build -Pkubernetes-deployment -DskipTests {project}:{image}'
                     
                     
                 }
