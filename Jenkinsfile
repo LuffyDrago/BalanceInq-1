@@ -9,7 +9,7 @@ pipeline {
     }
     parameters {
         
-        imageTag(name: 'balance-inquiry', image: '${env.BUILD_NUMBER}')
+        imageTag(name: '$DOCKER_IMAGE', image: 'balance-inquiry:latest:${env.BUILD_NUMBER}')
         
       }
     
