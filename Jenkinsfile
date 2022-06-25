@@ -4,7 +4,7 @@ pipeline {
       
         
         USER_NAME = "balance-inquiry:latest:${env.BUILD_NUMBER}" 
-        tag= "${env.BUILD_NUMBER}"
+        tag = "${env.BUILD_NUMBER}"
         
  
         
