@@ -4,7 +4,7 @@ pipeline {
       
         
         USER_NAME = "balance-inquiry:latest:${env.BUILD_NUMBER}" 
-        DOCKER_IMAGE_NAME = "vickvick/train-schedule"
+        
         
  
         
@@ -54,6 +54,7 @@ pipeline {
                     
 //                      sh 'mvn --settings configuration/settings.xml fabric8:build -Pkubernetes-deployment -DskipTests -Dfabric8.generator.spring-boot.name=${env.USER_NAME}'
                     sh 'mvn --settings configuration/settings.xml fabric8:build -Pkubernetes-deployment -DskipTests -Dfabric8.generator.spring-boot.name="balance-inquiry"'
+                    sh 'docker tag "balance-inquiry:latest" "balance-inquiry"'   
                     
                     
                 }
@@ -68,8 +69,8 @@ pipeline {
             steps {
                 script {
                     docker.withRegistry('https://registry.hub.docker.com', 'docker_hub_login') {                       
-//                         sh 'docker tag "balance-inquiry:latest" "balance-inquiry"'   
-                        app = docker.build(DOCKER_IMAGE_NAME)
+                        
+                        
                         app.push("${env.BUILD_NUMBER}")
                         app.push("latest")
                     }
