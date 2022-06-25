@@ -3,7 +3,7 @@ pipeline {
      environment {
       
         
-        USER_NAME = "balance_inq:[${env.BUILD_NUMBER}]" 
+        USER_NAME = "balance_inq.[${env.BUILD_NUMBER}]" 
         
     }
     
