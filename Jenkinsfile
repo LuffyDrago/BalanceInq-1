@@ -20,16 +20,16 @@ pipeline {
        
 
         
-        stage('Login kubernetes') {
-           steps {
-               withKubeConfig([credentialsId: 'kubeconfigs', serverUrl: 'https://192.168.0.65']) {
-                    sh ''
-               }
+//         stage('Login kubernetes') {
+//            steps {
+//                withKubeConfig([credentialsId: 'kubeconfigs', serverUrl: 'https://192.168.0.65']) {
+//                     sh ''
+//                }
                    
                   
                
-           }
-       }
+//            }
+//        }
 
         
 
