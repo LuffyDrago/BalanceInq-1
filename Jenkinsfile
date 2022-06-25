@@ -1,12 +1,12 @@
 pipeline {
     agent any
-     environment {
+//      environment {
       
         
-        USER_NAME = "balance-inquiry:latest:${env.BUILD_NUMBER}" 
+//         USER_NAME = "balance-inquiry:latest:${env.BUILD_NUMBER}" 
  
         
-    }
+//     }
     parameters {
         
         imageTag(name: '$DOCKER_IMAGE', image: 'balance-inquiry:latest:${env.BUILD_NUMBER}')
