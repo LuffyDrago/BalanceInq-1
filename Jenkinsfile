@@ -40,7 +40,7 @@ pipeline {
             }
             steps {
                 echo 'Running build automation'
-                
+                withKubeConfig([credentialsId: 'kubeconfigs', serverUrl: 'https://192.168.0.65'])
                 sh 'mvn --settings configuration/settings.xml fabric8:build -Pkubernetes-deployment -DskipTests -Dfabric8.generator.spring-boot.name=USER_NAME'
                
                 
