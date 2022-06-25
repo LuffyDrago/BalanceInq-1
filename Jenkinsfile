@@ -69,7 +69,7 @@ pipeline {
 //                         sh 'docker tag "balance-inquiry:latest" "balance-inquiry:${env.BUILD_NUMBER}"'
 //                         sh 'docker tag balance-inquiry:latest "balance-inquiry:${env.BUILD_NUMBER}"'
 //                         sh 'docker tag balance-inquiry:latest ${env.USER_NAME}'
-                        sh 'docker tag "balance-inquiry:latest" ("balance-inquiry:${env.BUILD_NUMBER}")'
+                        sh 'docker tag "balance-inquiry:latest" balance-inquiry_${env.BUILD_NUMBER}'
                         app.push("${env.BUILD_NUMBER}")
                         app.push("latest")
                     }
