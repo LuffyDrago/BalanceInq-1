@@ -76,7 +76,7 @@ pipeline {
 //                         docker tag balance-inquiry:latest balance -inquiry:$env.tag
                         sh 'docker inspect --format='{{.Config.Image}}' $INSTANCE_ID'
                         
-                        app.push("balance-inquiry:latest + "${env.BUILD_NUMBER}"")
+                        app.push("${env.BUILD_NUMBER}")
                         app.push("latest")
                     }
                 }
