@@ -77,7 +77,7 @@ pipeline {
 //                         docker tag balance-inquiry:latest balance -inquiry:$env.tag
                         
                         sh 'docker images' 
-                        sh 'docker tag balance-inquiry:latest vickvick/balance-inquiry:latest' 
+                        sh 'docker pull balance-inquiry:latest' 
                         
 //                         
 //                         sh 'docker tag balance-inquiry:latest vickvick/latest' 
