@@ -84,7 +84,7 @@ pipeline {
 //                         sh 'docker tag balance-inquiry:latest vickvick/latest' 
 //                          
 //                         sh 'docker push balance-inquiry:latest https://registry.hub.docker.com/balance-inquiry:latest'
-                         sh 'docker push balance-inquiry:latest'
+                         sh 'docker push /var/lib/jenkins/workspace/bringbank_master/target/docker/balance-inquiry/tmp/docker-build.tar'
                         
                         
 //                         app.push("balance-inquiry:latest vickvick/balance-inquiry")
