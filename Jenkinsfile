@@ -75,12 +75,12 @@ pipeline {
 //                         sh 'docker tag ${balance-inquiry:latest}:${BUILD_NUMBER} ${balance-inquiry}:latest' 
 //                         sh 'docker tag balance-inquiry:latest balance-inquiry_$tag'
 //                         docker tag balance-inquiry:latest balance -inquiry:$env.tag
-                        sh 'docker login' 
+                        
                         sh 'docker images' 
 //                         sh 'docker tag balance-inquiry:latest vickvick/latest' 
 //                          docker tag mylocalimage:latest sirimalla/dockerhub:myfirstimagepush
-                        sh 'docker push balance-inquiry:latest'
-                        app.push("balance-inquiry:latest")
+                        sh 'docker push balance-inquiry:latest vickvick/balance-inquiry'
+//                         app.push("balance-inquiry:latest")
 //                         app.push("${env.BUILD_NUMBER}")
 //                         app.push("latest")
                     }
