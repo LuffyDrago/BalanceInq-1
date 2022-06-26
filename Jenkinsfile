@@ -72,9 +72,9 @@ pipeline {
                       
 //                         
 //                         sh 'docker tag ${balance-inquiry:latest}:${BUILD_NUMBER} ${balance-inquiry}:latest' 
-                        sh 'docker tag balance-inquiry:latest balance-inquiry_$tag'
+//                         sh 'docker tag balance-inquiry:latest balance-inquiry_$tag'
 //                         docker tag balance-inquiry:latest balance -inquiry:$env.tag
-//                         app.push("${env.BUILD_NUMBER}")
+                        app.push("${env.BUILD_NUMBER}")
                         app.push("latest")
                     }
                 }
