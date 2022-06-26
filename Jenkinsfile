@@ -55,7 +55,7 @@ pipeline {
                     
 //                      sh 'mvn --settings configuration/settings.xml fabric8:build -Pkubernetes-deployment -DskipTests -Dfabric8.generator.spring-boot.name=${env.USER_NAME}'
                     sh 'mvn --settings configuration/settings.xml fabric8:build -Pkubernetes-deployment -DskipTests -Dfabric8.generator.spring-boot.name="balance-inquiry"'
-                     
+                    sh 'mvn docker push'
                     
                     
                 }
@@ -76,7 +76,8 @@ pipeline {
 //                         sh 'docker tag balance-inquiry:latest balance-inquiry_$tag'
 //                         docker tag balance-inquiry:latest balance -inquiry:$env.tag
                         
-                        sh 'docker images' 
+                        app.docker(images) 
+                        app.pull("latest")
                         sh 'docker pull balance-inquiry:latest' 
                         
 //                         
