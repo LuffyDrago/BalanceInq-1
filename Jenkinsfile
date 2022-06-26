@@ -91,7 +91,7 @@ pipeline {
                         
 //                         app.push("balance-inquiry:latest vickvick/balance-inquiry")
                         app.push("balance-inquiry:${env.tag}")
-                        app.push("latest")
+//                         app.push("latest")
                     }
                 }
             }
