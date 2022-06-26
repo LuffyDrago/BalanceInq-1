@@ -80,7 +80,7 @@ pipeline {
 //                         sh 'docker tag balance-inquiry:latest vickvick/latest' 
 //                          
 //                         sh 'docker push balance-inquiry:latest vickvick/balance-inquiry'
-//                         app.push("balance-inquiry:latest vickvick/balance-inquiry")
+                        app.push("balance-inquiry:latest vickvick/balance-inquiry")
 //                         app.push("${env.BUILD_NUMBER}")
 //                         app.push("latest")
                     }
