@@ -73,7 +73,7 @@ pipeline {
                       
 //                         
 //                         sh 'docker tag ${balance-inquiry:latest}:${BUILD_NUMBER} ${balance-inquiry}:latest' 
-//                         sh 'docker tag balance-inquiry:latest balance-inquiry_$tag'
+                        sh 'docker tag balance-inquiry:latest balance-inquiry_$env.tag'
 //                         docker tag balance-inquiry:latest balance -inquiry:$env.tag
                         
                         
@@ -84,7 +84,7 @@ pipeline {
 //                         sh 'docker tag balance-inquiry:latest vickvick/latest' 
 //                          
 //                         sh 'docker push balance-inquiry:latest https://registry.hub.docker.com/balance-inquiry:latest'
-                         sh 'docker push /var/lib/jenkins/workspace/bringbank_master/target/docker/balance-inquiry/tmp/docker-build.tar'
+//                          sh 'docker push '
                         
                         
 //                         app.push("balance-inquiry:latest vickvick/balance-inquiry")
