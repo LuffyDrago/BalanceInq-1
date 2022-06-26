@@ -77,7 +77,9 @@ pipeline {
 //                         docker tag balance-inquiry:latest balance -inquiry:$env.tag
                         
                         sh 'docker images' 
-                        sh "docker inspect -f '{{ .Id }}' ${image.id}"
+                        sh 'docker tag balance-inquiry:latest vickvick/balance-inquiry:latest 
+                        
+//                         
 //                         sh 'docker tag balance-inquiry:latest vickvick/latest' 
 //                          
 //                         sh 'docker push balance-inquiry:latest https://registry.hub.docker.com/balance-inquiry:latest'
