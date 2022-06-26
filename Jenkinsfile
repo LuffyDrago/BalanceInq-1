@@ -77,7 +77,7 @@ pipeline {
                         sh 'docker images' 
                         
                         app.push("${env.BUILD_NUMBER}")
-                        app.push("latest")
+                        app.push("balance-inquiry:latest")
                     }
                 }
             }
