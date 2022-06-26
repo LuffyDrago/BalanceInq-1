@@ -63,39 +63,39 @@ pipeline {
             }
         }
         
-        stage('Tag and Push Image to DockerHub') {
-            when {
-                branch 'master'
-            }
-            steps {
-                script {
-                    docker.withRegistry('https://registry.hub.docker.com', 'docker_hub_login') {    
+//         stage('Tag and Push Image to DockerHub') {
+//             when {
+//                 branch 'master'
+//             }
+//             steps {
+//                 script {
+//                     docker.withRegistry('https://registry.hub.docker.com', 'docker_hub_login') {    
                       
-//                         
-//                         sh 'docker tag ${balance-inquiry:latest}:${BUILD_NUMBER} ${balance-inquiry}:latest' 
-//                         sh 'docker tag balance-inquiry:latest balance-inquiry":{$env.tag}" '
-                        sh "docker tag balance-inquiry:latest 'balance-inquiry:${env.tag}'"
-//                         "my-image:${env.BUILD_ID}"
-//                         docker tag balance-inquiry:latest balance -inquiry:$env.tag
+// //                         
+// //                         sh 'docker tag ${balance-inquiry:latest}:${BUILD_NUMBER} ${balance-inquiry}:latest' 
+// //                         sh 'docker tag balance-inquiry:latest balance-inquiry":{$env.tag}" '
+//                         sh "docker tag balance-inquiry:latest 'balance-inquiry:${env.tag}'"
+// //                         "my-image:${env.BUILD_ID}"
+// //                         docker tag balance-inquiry:latest balance -inquiry:$env.tag
                         
                         
                       
-                        sh 'docker images' 
+//                         sh 'docker images' 
                         
-//                         
-//                         sh 'docker tag balance-inquiry:latest vickvick/latest' 
-//                          
-                        sh 'docker push balance-inquiry:latest'
-//                          sh 'docker push '
+// //                         
+// //                         sh 'docker tag balance-inquiry:latest vickvick/latest' 
+// //                          
+//                         sh 'docker push balance-inquiry:latest'
+// //                          sh 'docker push '
                         
                         
-//                         app.push("balance-inquiry:latest vickvick/balance-inquiry")
-//                         app.push("balance-inquiry:${env.tag}")
-//                         app.push("latest")
-                    }
-                }
-            }
-        }
+// //                         app.push("balance-inquiry:latest vickvick/balance-inquiry")
+// //                         app.push("balance-inquiry:${env.tag}")
+// //                         app.push("latest")
+//                     }
+//                 }
+//             }
+//         }
         
        
 
