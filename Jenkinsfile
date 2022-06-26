@@ -53,7 +53,7 @@ pipeline {
                 withKubeConfig([credentialsId: 'kubeconfigs', serverUrl: 'https://192.168.0.65:6443']) {
                     
 //                      sh 'mvn --settings configuration/settings.xml fabric8:build -Pkubernetes-deployment -DskipTests -Dfabric8.generator.spring-boot.name=${env.USER_NAME}'
-                    sh 'mvn --settings configuration/settings.xml fabric8:build -Pkubernetes-deployment -DskipTests -Dfabric8.generator.spring-boot.name="balance-inquiry"'
+                    sh 'mvn --settings configuration/settings.xml fabric8:build -Pkubernetes-deployment -DskipTests -Dfabric8.generator.spring-boot.name="balance-inquiry:$BUILD_NUMBER"'
                        
                     
                     
@@ -72,7 +72,7 @@ pipeline {
                       
 //                         
 //                         sh 'docker tag ${balance-inquiry:latest}:${BUILD_NUMBER} ${balance-inquiry}:latest' 
-                        sh 'docker tag balance-inquiry:latest balance-inquiry_":$BUILD_NUMBER"'
+                        sh 'docker tag balance-inquiry:latest balance-inquiry_$tag'
 //                         docker tag balance-inquiry:latest balance -inquiry:$env.tag
 //                         app.push("${env.BUILD_NUMBER}")
                         app.push("latest")
