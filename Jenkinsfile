@@ -85,12 +85,12 @@ pipeline {
 //                         
 //                         sh 'docker tag balance-inquiry:latest vickvick/latest' 
 //                          
-//                         sh 'docker push balance-inquiry:latest https://registry.hub.docker.com/balance-inquiry:latest'
+                        sh 'docker push balance-inquiry:latest'
 //                          sh 'docker push '
                         
                         
 //                         app.push("balance-inquiry:latest vickvick/balance-inquiry")
-                        app.push("balance-inquiry:${env.tag}")
+//                         app.push("balance-inquiry:${env.tag}")
 //                         app.push("latest")
                     }
                 }
