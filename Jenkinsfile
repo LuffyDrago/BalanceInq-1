@@ -108,7 +108,7 @@ pipeline {
                 withKubeConfig([credentialsId: 'kubeconfigs', serverUrl: 'https://192.168.0.65:6443']) {
                     
 
-                    sh 'mvn fabric8:deploy -kubernetes'
+                    sh 'mvn fabric8:deploy -Pkubernetes'
                        
                     
                     
