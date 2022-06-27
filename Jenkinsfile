@@ -89,7 +89,7 @@ pipeline {
                             
                         sh 'docker images' 
 //                         sh 'docker login registry.vickvick.com'     
-                        sh 'docker push ${repo_name}:${env.tag}'
+                        sh "docker push '${repo_name}:${env.tag}'"
                         
                         
                         
