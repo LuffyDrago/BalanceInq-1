@@ -97,18 +97,18 @@ pipeline {
                 }
             }
         }
-        stage('Push Image to DockerHub') {
-            when {
-                branch 'master'
-            }
-            steps {
-                script {
-                    docker.withRegistry('https://registry.hub.docker.com', 'docker_hub_login') {                                             
-                       sh 'docker push balance-inquiry:latest'
-                    }
-                }
-            }
-        }
+//         stage('Push Image to DockerHub') {
+//             when {
+//                 branch 'master'
+//             }
+//             steps {
+//                 script {
+//                     docker.withRegistry('https://registry.hub.docker.com', 'docker_hub_login') {                                             
+//                        sh 'docker push balance-inquiry:latest'
+//                     }
+//                 }
+//             }
+//         }
        
 
         stage('Deploy Balance-Inquiry Service') {
