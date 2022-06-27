@@ -82,7 +82,7 @@ pipeline {
                             
                         sh 'docker images' 
 //                         sh 'docker login registry.vickvick.com'     
-                        sh 'docker push registry.vickvick.com/balance-inquiry:latest'
+                        sh 'docker push balance-inquiry:latest'
                         
                         
                         
