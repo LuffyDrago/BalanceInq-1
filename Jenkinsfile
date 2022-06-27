@@ -85,7 +85,7 @@ pipeline {
 //                         
 //                         sh 'docker tag balance-inquiry:latest vickvick/latest' 
 //                          
-                        sh 'docker push balance-inquiry:latest'
+                      
 //                          sh 'docker push '
                         
                         
@@ -104,8 +104,7 @@ pipeline {
             steps {
                 script {
                     docker.withRegistry('https://registry.hub.docker.com', 'docker_hub_login') {                                             
-                        app.push("${env.tag}")
-                        app.push("latest")
+                       sh 'docker push balance-inquiry:latest'
                     }
                 }
             }
