@@ -3,9 +3,12 @@ pipeline {
      environment {
       
         
-        USER_NAME = "balance-inquiry:latest:${env.BUILD_NUMBER}" 
-        DOCKER_IMAGE_NAME = "vickvick/balance-inquiry:latest"
+//         USER_NAME = "balance-inquiry:latest:${env.BUILD_NUMBER}" 
+//         DOCKER_IMAGE_NAME = "vickvick/balance-inquiry:latest"
         tag = "${env.BUILD_NUMBER}"
+        USER_NAME = "vickvick" 
+        DOCKER_REPO = "https://hub.docker.com"
+        registry = "YourDockerhubAccount/vickvick" 
         
  
         
@@ -73,10 +76,11 @@ pipeline {
                       
 //                       
                        
-//                        sh 'docker tag balance-inquiry:latest balance-inquiry":{$env.tag}" '
-                        sh "docker tag balance-inquiry:latest 'https://registry.hub.docker.com/docker_hub_login/balance-inquiry:${env.tag}'"
-//                         "my-image:${env.BUILD_ID}"
-//                         docker tag balance-inquiry:latest balance -inquiry:$env.tag
+//                     
+//                         sh "docker tag balance-inquiry:latest 'vickvick/balance-inquiry:${env.tag}'"
+                        sh "docker tag balance-inquiry:latest '${env.DOCKER_REPO}${env.USER_NAME}/balance-inquiry:${env.tag}'"
+//                           sh "docker tag balance-inquiry:latest 'https://registry.hub.docker.com/docker_hub_login/balance-inquiry:${env.tag}'"
+//                       
                         
                         
                             
@@ -84,13 +88,6 @@ pipeline {
 //                         sh 'docker login registry.vickvick.com'     
                         sh 'docker push '
                         
-                        
-                        
-//                         
-//                         sh 'docker tag balance-inquiry:latest vickvick/latest' 
-//                          
-                      
-//                          sh 'docker push '
                         
                         
 //                         app.push("balance-inquiry:latest vickvick/balance-inquiry")
@@ -101,18 +98,9 @@ pipeline {
                 }
             }
         }
-//         stage('Push Image to DockerHub') {
-//             when {
-//                 branch 'master'
-//             }
-//             steps {
-//                 script {
-//                     docker.withRegistry('https://registry.hub.docker.com', 'docker_hub_login') {                                             
-//                        sh 'docker push balance-inquiry:latest'
-//                     }
-//                 }
-//             }
-//         }
+        
+         
+
        
 
         stage('Deploy Balance-Inquiry Service') {
