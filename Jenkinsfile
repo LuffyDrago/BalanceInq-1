@@ -117,9 +117,9 @@ pipeline {
             }
             steps {
                 echo 'Running build automation'
-                withKubeConfig([credentialsId: 'kubeconfigs', serverUrl: 'https://192.168.0.65']) {
+                withKubeConfig([credentialsId: 'kubeconfigs', serverUrl: 'https://192.168.0.65:6443']) {
                     
-
+                    sh 'kubectl --namespace=balance-inquiry' 
                     sh 'mvn --settings configuration/settings.xml fabric8:deploy -Pkubernetes' 
 //                        --settings configuration/settings.xml
                     
