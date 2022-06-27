@@ -209,6 +209,11 @@ EOF
 
 
 
+Failed to execute goal io.fabric8:fabric8-maven-plugin:4.4.0:resource (default) on project bankingApp: Execution default of goal io.fabric8:fabric8-maven-plugin:4.4.0:resource failed: Cannot deserialize instance of `java.util.ArrayList<io.fabric8.kubernetes.api.model.Container>` out of START_OBJECT token
+[ERROR]  at [Source: UNKNOWN; line: -1, column: -1] (through reference chain: io.fabric8.kubernetes.api.model.apps.Deployment["spec"]->io.fabric8.kubernetes.api.model.apps.DeploymentSpec["template"]->io.fabric8.kubernetes.api.model.PodTemplateSpec["spec"]->io.fabric8.kubernetes.api.model.PodSpec["containers"])
+[ERROR] -> [Help 1]
+
+
  
 
 
