@@ -1,6 +1,9 @@
 spec:
   template:
     spec:
+      imagePullSecrets:
+        - name: vickvick
+
       containers:
         - 
           resources:
@@ -25,4 +28,5 @@ spec:
                 key: service.port.amqp2
           - name: CAMEL_COMPONENT_AMQP_PARAMETERS
             value: transport.trustAll=true&transport.verifyHost=false&amqp.idleTimeout=120000
+
 
