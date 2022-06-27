@@ -7,8 +7,8 @@ pipeline {
 //         DOCKER_IMAGE_NAME = "vickvick/balance-inquiry:latest"
         tag = "${env.BUILD_NUMBER}"
         USER_NAME = "vickvick" 
-        DOCKER_REPO = "https://hub.docker.com"
-        registry = "YourDockerhubAccount/vickvick" 
+       
+       
         
  
         
@@ -72,13 +72,16 @@ pipeline {
             }
             steps {
                 script {
-                    docker.withRegistry('https://registry.hub.docker.com', 'docker_hub_login') {    
+                        def repo_name= "vickvick/balance-inquiry" 
+//                     docker.withRegistry('https://registry.hub.docker.com', 'docker_hub_login') {    
                       
 //                       
                        
 //                     
 //                         sh "docker tag balance-inquiry:latest 'vickvick/balance-inquiry:${env.tag}'"
-                        sh "docker tag balance-inquiry:latest '${env.DOCKER_REPO}/${env.USER_NAME}/balance-inquiry:${env.tag}'"
+                        sh "docker tag balance-inquiry:latest '${repo_name}:${env.tag}'"
+                        
+                        docker.withRegistry('https://registry.hub.docker.com', 'docker_hub_login') {   
 //                           sh "docker tag balance-inquiry:latest 'https://registry.hub.docker.com/docker_hub_login/balance-inquiry:${env.tag}'"
 //                       
                         
@@ -86,7 +89,7 @@ pipeline {
                             
                         sh 'docker images' 
 //                         sh 'docker login registry.vickvick.com'     
-                        sh 'docker push '
+                        sh 'docker push ${repo_name}:${env.tag}'
                         
                         
                         
