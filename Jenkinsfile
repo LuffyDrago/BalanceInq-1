@@ -117,7 +117,7 @@ pipeline {
             }
             steps {
                 echo 'Running build automation'
-                withKubeConfig([credentialsId: 'kubeconfigs', serverUrl: 'https://192.168.0.65:6443']) {
+                withKubeConfig([credentialsId: 'kubeconfigs', serverUrl: 'https://192.168.0.65']) {
                     
 
                     sh 'mvn --settings configuration/settings.xml fabric8:deploy -Pkubernetes' 
