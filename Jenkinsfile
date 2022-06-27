@@ -69,11 +69,11 @@ pipeline {
             }
             steps {
                 script {
-                    docker.withRegistry('https://registry.hub.docker.com', 'docker_hub_login') {    
+//                     docker.withRegistry('https://registry.hub.docker.com', 'docker_hub_login') {    
                       
-//                         
-//                         sh 'docker tag ${balance-inquiry:latest}:${BUILD_NUMBER} ${balance-inquiry}:latest' 
-//                         sh 'docker tag balance-inquiry:latest balance-inquiry":{$env.tag}" '
+//                       
+                        sh 'docker login' 
+//                        sh 'docker tag balance-inquiry:latest balance-inquiry":{$env.tag}" '
                         sh "docker tag balance-inquiry:latest 'balance-inquiry:${env.tag}'"
 //                         "my-image:${env.BUILD_ID}"
 //                         docker tag balance-inquiry:latest balance -inquiry:$env.tag
@@ -82,7 +82,7 @@ pipeline {
                             
                         sh 'docker images' 
 //                         sh 'docker login registry.vickvick.com'     
-                        sh 'docker push balance-inquiry:latest'
+                        sh 'balance-inquiry:${env.tag}'
                         
                         
                         
@@ -97,7 +97,7 @@ pipeline {
 //                         app.push("balance-inquiry:${env.tag}")
 //                         app.push("${env.tag}")
 //                         app.push("latest")
-                    }
+//                     }
                 }
             }
         }
