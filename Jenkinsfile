@@ -111,6 +111,7 @@ pipeline {
                 branch 'master'
             }
             steps {
+                def repo_name= "vickvick/balance-inquiry" 
                 echo 'Running build automation'
                 withKubeConfig([credentialsId: 'kubeconfigs', serverUrl: 'https://192.168.0.65:6443']) {
                     
