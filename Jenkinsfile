@@ -91,13 +91,25 @@ pipeline {
                         
 //                         app.push("balance-inquiry:latest vickvick/balance-inquiry")
 //                         app.push("balance-inquiry:${env.tag}")
+//                         app.push("${env.tag}")
+//                         app.push("latest")
+                    }
+                }
+            }
+        }
+        stage('Push Image to DockerHub') {
+            when {
+                branch 'master'
+            }
+            steps {
+                script {
+                    docker.withRegistry('https://registry.hub.docker.com', 'docker_hub_login') {                                             
                         app.push("${env.tag}")
                         app.push("latest")
                     }
                 }
             }
         }
-        
        
 
         stage('Deploy Balance-Inquiry Service') {
