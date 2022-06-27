@@ -115,7 +115,7 @@ pipeline {
                 withKubeConfig([credentialsId: 'kubeconfigs', serverUrl: 'https://192.168.0.65:6443']) {
                     
                     sh 'kubectl --namespace=balance-inquiry' 
-                    sh 'mvn --settings configuration/settings.xml fabric8:deploy -Pkubernetes' 
+                    sh "mvn --settings configuration/settings.xml fabric8:deploy -Pkubernetes-deployment -DskipTests -Dfabric8.generator.spring-boot.name='${repo_name}:${env.tag}'" 
 //                        --settings configuration/settings.xml
                     
                     
