@@ -1,15 +1,9 @@
 pipeline {
     agent any
      environment {
-      
-        
-
+              
         tag = "${env.BUILD_NUMBER}"
-        USER_NAME = "vickvick" 
-       
-       
-        
- 
+        USER_NAME = "vickvick"                        
         
     }
 
