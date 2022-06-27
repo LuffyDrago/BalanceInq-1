@@ -3,9 +3,8 @@ spec:
     spec:
       imagePullSecrets:
         - name: vickvick
-
+      serviceAccountName: default
       containers:
-        - 
           resources:
             requests:
               cpu: "0.2"
