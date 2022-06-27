@@ -85,7 +85,7 @@ pipeline {
 //                         
 //                         sh 'docker tag balance-inquiry:latest vickvick/latest' 
 //                          
-//                         sh 'docker push balance-inquiry:latest'
+                        sh 'docker push balance-inquiry:latest'
 //                          sh 'docker push '
                         
                         
