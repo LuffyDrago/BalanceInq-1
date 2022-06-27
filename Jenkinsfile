@@ -81,7 +81,7 @@ pipeline {
 //                         sh "docker tag balance-inquiry:latest 'vickvick/balance-inquiry:${env.tag}'"
                         sh "docker tag balance-inquiry:latest '${repo_name}:${env.tag}'"
                         
-                        docker.withRegistry('https://registry.hub.docker.com', 'docker_hub_login') {   
+                        docker.withRegistry('', 'docker_hub_login') {   
 //                           sh "docker tag balance-inquiry:latest 'https://registry.hub.docker.com/docker_hub_login/balance-inquiry:${env.tag}'"
 //                       
                         
