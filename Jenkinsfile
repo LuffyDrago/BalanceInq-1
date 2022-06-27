@@ -78,7 +78,7 @@ pipeline {
                        
 //                     
 //                         sh "docker tag balance-inquiry:latest 'vickvick/balance-inquiry:${env.tag}'"
-                        sh "docker tag balance-inquiry:latest '${env.DOCKER_REPO}${env.USER_NAME}/balance-inquiry:${env.tag}'"
+                        sh "docker tag balance-inquiry:latest '${env.DOCKER_REPO}/${env.USER_NAME}/balance-inquiry:${env.tag}'"
 //                           sh "docker tag balance-inquiry:latest 'https://registry.hub.docker.com/docker_hub_login/balance-inquiry:${env.tag}'"
 //                       
                         
